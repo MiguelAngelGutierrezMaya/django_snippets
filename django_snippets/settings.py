@@ -24,7 +24,7 @@ SECRET_KEY = 'gz(%zk5m1&tiv(_&$)^69(a!bos)4iuzp7y4d8eyi&td2eqj+u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangosnippetsapp.herokuapp.com']
+ALLOWED_HOSTS = ['djangosnippetsapp.herokuapp.com', 'localhost']
 
 
 # Application definition
