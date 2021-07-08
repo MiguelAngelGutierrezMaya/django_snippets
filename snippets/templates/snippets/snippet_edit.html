@@ -3,7 +3,7 @@
 <div class="row justify-content-md-center">
   <div class="col-md-6">
     <br>
-    <form method="POST" action="{% url 'snippets' %}">
+    <form method="POST" action="{% url 'snippet_edit' snippet.pk %}">
       {% csrf_token %}
 
       {% if form.error %}
@@ -15,19 +15,18 @@
       <div class="form-group">
         <label for="name">Nombre</label>
         <input type="text" class="form-control" id="name" placeholder="Nombre del Snippet" name="name"
-          value="{% if form.error %}{{form.error.name}}{% endif %}" />
+          value="{{snippet.name}}" />
       </div>
       <div class="form-group">
         <label for="description">Descripción</label>
         <input type="text" class="form-control" id="description" aria-describedby="Description"
-          placeholder="Descripcion" name="description"
-          value="{% if form.error %}{{form.error.description}}{% endif %}" />
+          placeholder="Descripcion" name="description" value="{{snippet.description}}" />
       </div>
       <div class="form-group">
         <label for="language_id">Lenguaje</label>
         <select class="form-control" id="language_id" name="language_id">
           {% for language in languages %}
-          {% if form.error and form.error.language_id == language.id %}
+          {% if snippet.language.id == language.id %}
           <option value="{{ language.id }}" selected>{{ language.name }}</option>
           {% else %}
           <option value="{{ language.id }}">{{ language.name }}</option>
@@ -39,7 +38,7 @@
       <div class="form-group">
         <label for="public">Tipo</label>
         <select class="form-control" id="public" name="public">
-          {% if form.error and form.error.public == 'public' %}
+          {% if snippet.public %}
           <option value="public" selected>Publico</option>
           <option value="private">Privado</option>
           {% else %}
@@ -51,10 +50,9 @@
 
       <div class="form-group">
         <label for="snippet">Snippet</label>
-        <textarea class="form-control" id="snippet" rows="5"
-          name="snippet">{% if form.error %}{{ form.error.snippet }}{% endif %}</textarea>
+        <textarea class="form-control" id="snippet" rows="5" name="snippet">{{ snippet.snippet }}</textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
+      <button type="submit" class="btn btn-primary">Editar</button>
     </form>
   </div>
 </div>

@@ -2,41 +2,16 @@
 {% block content %}
 <div class="row justify-content-md-center">
     <div class="col-md-8">
-        <h1>Snippets: Juancito</h1>
-        <br>
-        
-        <!-- SNIPPET -->
-        <div class="card">
-            <h5 class="card-header">Mi primer snippet <a href="{% url 'user_snippets' %}"  class="float-right"><small>juancito</small></a></h5>
-            <div class="card-body">
-                <a href="{% url 'language' %}"><h5 class="card-title">Python</h5></a> 
-                <h6 class="card-subtitle mb-2 text-muted">Creado: 1 dia</h6>
-                <p class="card-text">Ejemplo de clases en python</p>
-                <hr>
-                <a href="{% url 'snippet' %}" class="btn btn-primary">Ver</a>
-                <a href="{% url 'snippet_edit' %}" class="btn btn-info">Editar</a>
-                <a href="{% url 'snippet_delete' %}" class="btn btn-danger">Eliminar</a>
-            </div>
-        </div>
-        <br>
-        <!-- FIN SNIPPET -->
+        <br />
+        <h1>Snippets: {{username}}</h1>
+        <br />
 
         <!-- SNIPPET -->
-        <div class="card">
-            <h5 class="card-header">Snippet secreto <span class="badge badge-warning">Privado</span> <a href="{% url 'user_snippets' %}"  class="float-right"><small>juancito</small></a></h5>
-            <div class="card-body">
-                <a href="{% url 'language' %}"><h5 class="card-title">Python</h5></a> 
-                <h6 class="card-subtitle mb-2 text-muted">Creado: 3 dia</h6>
-                <p class="card-text">Super secreto</p>
-                <hr>
-                <a href="{% url 'snippet' %}" class="btn btn-primary">Ver</a>
-                <a href="{% url 'snippet_edit' %}" class="btn btn-info">Editar</a>
-                <a href="{% url 'snippet_delete' %}" class="btn btn-danger">Eliminar</a>
-            </div>
-        </div>
-        <br>
+        {% for snippet in snippets %}
+        {% include "components/snippet.html" %}
+        {% endfor %}
         <!-- FIN SNIPPET -->
 
-  </div>
+    </div>
 </div>
 {% endblock %}

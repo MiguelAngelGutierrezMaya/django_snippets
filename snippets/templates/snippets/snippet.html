@@ -3,23 +3,7 @@
 <div class="row justify-content-md-center">
   <div class="col-md-8">
     <br>
-    <div class="card">
-      <h5 class="card-header">Nombre del Snippet <a href="{% url 'user_snippets' %}"  class="float-right"><small>user1</small></a></h5>
-      <div class="card-body">
-        <a href="{% url 'language' %}"><h5 class="card-title">Python</h5></a> 
-        <h6 class="card-subtitle mb-2 text-muted">Creado: 3 dia</h6>
-        <p class="card-text">la descripcion</p>
-        <div style="background-color:lightgray;border-radius: 5px;">
-          <!-- Código del Snippet -->
-          <samp>This text is meant to be treated as sample output from a computer program.</samp>
-          <!-- Código del Snippet -->
-        </div>
-        <hr>
-        <br>
-        <a href="{% url 'snippet_edit' %}" class="btn btn-info">Editar</a>
-        <a href="{% url 'snippet_delete' %}" class="btn btn-danger">Eliminar</a>
-      </div>
-    </div>
+    {% include "components/snippet.html" %}
   </div>
 </div>
 {% endblock %}
